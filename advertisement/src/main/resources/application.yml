@@ -1,0 +1,29 @@
+server:
+  port: 9002
+spring: 
+    application:
+       name: advertisement-service
+    datasource:
+      url: jdbc:mysql://localhost:3306/advertisement
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      password: root@12345
+    jpa:
+       hibernate.ddl-auto: update
+       properties:
+           hibernate:
+              dialect: org.hibernate.dialect.MySQL8Dialect   
+    zipkin:
+     base-url: http://localhost:9411 
+eureka:
+  client:
+    register-with-eureka: true 
+    fetch-registry:  true   
+               
+management:  endpoints:    web:      exposure:        include: "*"  health:    circuitbreakers:      enabled: true  endpoint:    health:      show-details: always        
+       
+
+        
+        
+
+          
